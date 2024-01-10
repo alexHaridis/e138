@@ -13,14 +13,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="passwordPrompt" class="password-prompt">
-    <div class="password-container">
-      <h2>Please Enter Password to Access Syllabus</h2>
-      <input type="password" id="passwordInput" placeholder="Enter Password"/>
-      <button onclick="verifyPassword()">Submit</button>
-      <p id="errorMsg" class="error-msg"></p>
-    </div>
-  </div>
+  
   <header class="site-header">
     <a href="index.html" class="site-logo">
       <img src="seaslogo.jpg" alt="Engineering Department Logo">
@@ -70,73 +63,83 @@
             <li><strong>Presentations and Peer-Critique.</strong> Following the tradition of design studio education, students will be asked to participate in “crits” or reviews of their ongoing work (whether that’s for homework assignments or their final project). Assignments may ask students to give a presentation of their findings in class for peer feedback and critique. Peer feedback and ability to formulate constructive critique is an integral element of the course and part of the final grade.</li>
             <li><strong>Final Course Document.</strong> All students will submit a cumulative PDF document to Canvas that contains all of their homework assignments, written work, final project, or other material developed throughout the semester. A standard format for this cumulative PDF document will be provided. The purpose of the final course document is to provide students an opportunity to develop a complete “portfolio” of their work in the class for future use and reflection.</li>
           </ol>  
-          <h2 class="index-heading" ><strong>Course Outline</strong></h2>
-          <p>[<em>Subject to change based on enrollment</em>]</p>
-          <ul>
-            <li>[Tu 01/23] <strong>Lecture 1</strong> – Introductory lecture on modules, assignments, materials, and policies.</li>
-            <ul style="margin-left: 25px;">
-              <li>Required exercises on design representation and digital design software. Provides SEAS ALL Labs support <strong>[TBD].</strong></li>
-              <li>[Assignment 1 (individual): “Seeing and Spatial Recognition”; Due 02/01.]</li>
-            </ul>
-          </ul>
-          <h4 style="font-weight: 600;">Module 1 – Visual Calculating and Rule-Based Generative Design [Weeks 1-4]</h4>
-          Creative design ideas often originate from observing existing spatial objects of human design – how they look, how they are made, how they are used or experienced by us or by others. Observations inspire but don’t restrict the generative (creative) process, so that new spatial ideas can emerge. Learn about visual calculating, a computational model for design observation and generative creation. Using shapes, rules, and grammars:
-          </br>(a) Learn how to recognize and describe design parts and their physical/spatial relations;
-          </br>(b) Learn how to recognize and model the formal style of a design language, or generate a new design language from scratch.
-          <section style="margin-left: 25px;">
+          <section class=""course-schedule-container>
+            <div id="passwordPrompt" class="password-prompt">
+              <div class="password-container">
+                <h2>Please Enter Password to Access Syllabus</h2>
+                <input type="password" id="passwordInput" placeholder="Enter Password"/>
+                <button onclick="verifyPassword()">Submit</button>
+                <p id="errorMsg" class="error-msg"></p>
+              </div>
+            </div>
+
+            <h2 class="index-heading" ><strong>Course Schedule</strong></h2>
+            <p>[<em>Subject to change based on enrollment</em>]</p>
             <ul>
-              <li>[Thu 01/25] <strong>Lecture 2</strong> – Points, Shapes, Operations, Relations</li>
+              <li>[Tu 01/23] <strong>Lecture 1</strong> – Introductory lecture on modules, assignments, materials, and policies.</li>
               <ul style="margin-left: 25px;">
-                <li>[Required: Prepared Readings and Exercises on Lecture 2 <strong>TBD</strong>]</li>
+                <li>Required exercises on design representation and digital design software. Provides SEAS ALL Labs support <strong>[TBD].</strong></li>
+                <li>[Assignment 1 (individual): “Seeing and Spatial Recognition”; Due 02/01.]</li>
               </ul>
             </ul>
-            <ul>
-              <li>[Tue 01/30] <strong>Lecture 3</strong> – Labels, Function, Material, Decomposition</li>
-              <ul style="margin-left: 25px;">
-                <li>[Required: Prepared Readings and Exercises on Lecture 3 <strong>TBD</strong>]</li>
-              </ul>
-            </ul>
-            <ul>
-              <li>[Thu 02/01] Class Activity: Hands-on Practice and Assignment 1 Crit</li>
-            </ul>
-            <ul>
-              <li>[Tue 02/06] Assignment 1 Presentations and Peer-Critique</li>
-              <ul style="margin-left: 25px;">
-                <li>[Required: Peer-critiques documented and submitted digitally.]</li>
-                <li>[Assignment 2 (individual): “Visual Calculating and Rule-Based Generative Design”; Due 02/20.]</li>
-              </ul>
-            </ul>
-            <ul>
-              <li>[Thu 02/08] <strong>Lecture 4</strong> – Shape Rules, Recursion, and Grammars</li>
-              <ul style="margin-left: 25px;">
+            <h4 style="font-weight: 600;">Module 1 – Visual Calculating and Rule-Based Generative Design [Weeks 1-4]</h4>
+              Creative design ideas often originate from observing existing spatial objects of human design – how they look, how they are made, how they are used or experienced by us or by others. Observations inspire but don’t restrict the generative (creative) process, so that new spatial ideas can emerge. Learn about visual calculating, a computational model for design observation and generative creation. Using shapes, rules, and grammars:
+            </br>(a) Learn how to recognize and describe design parts and their physical/spatial relations;
+            </br>(b) Learn how to recognize and model the formal style of a design language, or generate a new design language from scratch.
+            <section style="margin-left: 25px;">
+              <ul>
+                <li>[Thu 01/25] <strong>Lecture 2</strong> – Points, Shapes, Operations, Relations</li>
                 <ul style="margin-left: 25px;">
-                  <li>[Required: Prepared Readings and Exercises on Lecture 4<strong>TBD</strong>]</li>
+                  <li>[Required: Prepared Readings and Exercises on Lecture 2 <strong>TBD</strong>]</li>
                 </ul>
               </ul>
-            </ul>
-            <ul>
-              <li>[Tue 02/13] <strong>Lecture 5</strong> – Stylistic Analysis and Design Languages</li>
-              <ul style="margin-left: 25px;">
+              <ul>
+                <li>[Tue 01/30] <strong>Lecture 3</strong> – Labels, Function, Material, Decomposition</li>
                 <ul style="margin-left: 25px;">
-                  <li>[Required: Prepared Readings and Exercises on Lecture 5 <strong>TBD</strong>]</li>
+                  <li>[Required: Prepared Readings and Exercises on Lecture 3 <strong>TBD</strong>]</li>
                 </ul>
               </ul>
-            </ul>
-            <ul>
+              <ul>
+                <li>[Thu 02/01] Class Activity: Hands-on Practice and Assignment 1 Crit</li>
+              </ul>
+              <ul>
+                <li>[Tue 02/06] Assignment 1 Presentations and Peer-Critique</li>
+                <ul style="margin-left: 25px;">
+                  <li>[Required: Peer-critiques documented and submitted digitally.]</li>
+                  <li>[Assignment 2 (individual): “Visual Calculating and Rule-Based Generative Design”; Due 02/20.]</li>
+                </ul>
+              </ul>
+              <ul>
+                <li>[Thu 02/08] <strong>Lecture 4</strong> – Shape Rules, Recursion, and Grammars</li>
+                <ul style="margin-left: 25px;">
+                  <ul style="margin-left: 25px;">
+                    <li>[Required: Prepared Readings and Exercises on Lecture 4<strong>TBD</strong>]</li>
+                  </ul>
+                </ul>
+              </ul>
+             <ul>
+                <li>[Tue 02/13] <strong>Lecture 5</strong> – Stylistic Analysis and Design Languages</li>
+                <ul style="margin-left: 25px;">
+                  <ul style="margin-left: 25px;">
+                    <li>[Required: Prepared Readings and Exercises on Lecture 5 <strong>TBD</strong>]</li>
+                  </ul>
+                </ul>
+              </ul>
+              <ul>
               <li>[Thu 02/15] Class Activity: Hands-on Practice and Assignment 2 Crit</li>
-            </ul>
-            <ul>
+              </ul>
+              <ul>
               <li>[Tue 02/20] Assignment 2 Presentations and Peer-Critique</li>
               <ul style="margin-left: 25px;">
                 <ul style="margin-left: 25px;">
                   <li>[Required: Peer-critiques documented and submitted digitally.]</li>
                 </ul>
               </ul>
-            </ul>
-            <ul>
+              </ul>
+              <ul>
               <li>[<u>Assignment 3</u> (multi-step team assignment): “Design Knowledge and Learning”; Due: 03/19.]</li>
-            </ul>
-          </section>
+              </ul>
+            </section>
           <h4 style="font-weight: 600;">Module 2 – Design Knowledge and Learning [Weeks 5-9]</h4>
           <p>In this module we continue our exploration of calculating, now with more emphasis on calculating using digital machines including some foundational issues and histories of Computer-Aided Design (CAD) and Artificial Intelligence (AI). Learn about viewpoints of design originating in particular CAD and AI paradigms, including search, design space exploration, and learning by discernment. Equipped with this knowledge, you will explore one or more of these paradigms through real-world cases. </p>
           <section style="margin-left: 25px;">
@@ -244,6 +247,7 @@
                 <li><u>Final Course Document</u> – Due on 05/08 at 11:59pm</li>
               </ul>
             </ul>
+          </section>
           </section>
 
         </article>
