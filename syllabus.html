@@ -13,14 +13,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="passwordPrompt" class="password-prompt">
-    <div class="password-container">
-      <h2>Please Enter Password to Access Syllabus</h2>
-      <input type="password" id="passwordInput" placeholder="Enter Password"/>
-      <button onclick="verifyPassword()">Submit</button>
-      <p id="errorMsg" class="error-msg"></p>
-    </div>
-  </div>
   <header class="site-header">
     <a href="index.html" class="site-logo">
       <img src="seaslogo.jpg" alt="Engineering Department Logo">
@@ -71,6 +63,15 @@
             <li><strong>Final Course Document.</strong> All students will submit a cumulative PDF document to Canvas that contains all of their homework assignments, written work, final project, or other material developed throughout the semester. A standard format for this cumulative PDF document will be provided. The purpose of the final course document is to provide students an opportunity to develop a complete “portfolio” of their work in the class for future use and reflection.</li>
           </ol>  
           <h2 class="index-heading" ><strong>Course Schedule</strong></h2>
+          <div id="passwordPrompt" >
+            <div class="password-container">
+              <h2>Please Enter Password to Access Syllabus</h2>
+              <input type="password" id="passwordInput" placeholder="Enter Password"/>
+              <button onclick="verifyPassword()">Submit</button>
+              <p id="errorMsg" class="error-msg"></p>
+            </div>
+          </div>
+        <div id="syllabusContent" style="display:none;">
           <p>[<em>Subject to change based on enrollment</em>]</p>
           <ul>
             <li>[Tu 01/23] <strong>Lecture 1</strong> – Introductory lecture on modules, assignments, materials, and policies.</li>
@@ -308,7 +309,7 @@
               </ul>
             </ul>
           </section>
-
+        </div>
         </article>
       </div>
     </div>
@@ -322,9 +323,12 @@
     function verifyPassword() {
       var password = document.getElementById("passwordInput").value;
       var errorMsg = document.getElementById("errorMsg");
+      var syllabus = document.getElementById("syllabusContent")
       var correctPassword = "ES138-2024"; 
       if(password === correctPassword) {
-        document.getElementById("passwordPrompt").style.display = "none";
+        syllabusContent.style.display = "block";
+        passwordPrompt.style.display = 'none';
+        
       } else {
         errorMsg.textContent = "Incorrect Password. Please try again.";
       }
