@@ -63,13 +63,16 @@
               <div id="visualizationContent" style="display: none;">
                 <svg id="graph"></svg>
                 <script>
-                  // Width and height for the SVG
-                  var width = 900, height = 700;
+                  // Width and height for the SVG var width = 900, height = 600;
+                  var width = window.innerWidth, height = window.innerHeight;
+
                   
                   // Append SVG to the body
                   var svg = d3.select("#graph")
                       .attr("width", width)
-                      .attr("height", height);
+                      .attr("height", height)
+                      .attr("viewBox", [0, 0, width, height]);
+
                   
                   // Tooltip for book details
                   var tooltip = d3.select("body").append("div")
@@ -83,6 +86,10 @@
                       .force("center", d3.forceCenter(width / 2, height / 2));
                   
                   d3.json("ES138-Graph-Data.json").then(function(graph) {
+                      graph.nodes.forEach(function(d) {
+                          d.id = +d.id;  // Ensure the id is an integer
+                      });
+
                       var link = svg.append("g")
                           .attr("class", "links")
                           .selectAll("line")
@@ -110,9 +117,11 @@
                       simulation
                           .nodes(graph.nodes)
                           .on("tick", ticked);
-                  
+                  -
+
                       simulation.force("link")
-                          .links(graph.links);
+                          .links(graph.links)
+                          .id(function(d) { return d.id; });
                   
                       function ticked() {
                           link
@@ -184,10 +193,11 @@
                   
                       function mouseover(event, d) {
                           if (d.group === 2) { // Show tooltip only for book nodes
+                            var imagePath = "covers/" + d.cover; // Prepend the 'covers/' path to the image filename
                               tooltip.transition()
                                   .duration(200)
                                   .style("opacity", .9);
-                              tooltip.html(d.title + "<br/>" + d.author + "<br/><img src='" + d.cover + "' width='100'/>")
+                                  tooltip.html(d.title + "<br/>" + d.author + "<br/><img src='" + imagePath + "' width='100'/>")
                                   .style("left", (event.pageX) + "px")
                                   .style("top", (event.pageY - 28) + "px");
                           }
