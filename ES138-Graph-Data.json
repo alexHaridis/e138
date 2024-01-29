@@ -2,57 +2,107 @@
     "nodes": [
         {
             "id": "0",
-            "title":"ES138",
+            "title": "ES138",
             "group": 0,
             "type": "central"
         },
         {
+            "id": "cat_1",
+            "title": "Shape Grammars",
+            "group": 1
+        },
+        {
+            "id": "cat_2",
+            "title": "Mathematics",
+            "group": 1
+        },
+        {
+            "id": "cat_3",
+            "title": "Computer Science",
+            "group": 1
+        },
+        {
+            "id": "cat_4",
+            "title": "Architecture",
+            "group": 1
+        },
+        {
+            "id": "cat_5",
+            "title": "Literature",
+            "group": 1
+        },
+        {
+            "id": "cat_6",
+            "title": "Artificial Intelligence",
+            "group": 1
+        },
+        {
+            "id": "cat_7",
+            "title": "Cognitive Science",
+            "group": 1
+        },
+        {
+            "id": "cat_8",
+            "title": "Aesthetics",
+            "group": 1
+        },
+        {
+            "id": "cat_9",
+            "title": "Design & Engineering",
+            "group": 1
+        },
+        {
+            "id": "cat_10",
+            "title": "Social Science & Technology",
+            "group": 1
+        },
+        {
             "id": "1",
-            "title": "Shape: Talking\nabout Seeing and\nDoing (2006)",
+            "title": "Shape: Talking about Seeing and Doing (2006)",
             "author": "George Stiny",
             "year": 2006,
             "class": "Shape Grammars",
-            "synopsis": "A monograph on the \nsubject of shape\ngrammars. The book is\ndedicated to showing\nhow visual calculating in\nshape grammars\nincludes symbolic\ncalculating in classical\ncomputing machines\nand how in this way it\nbroadens calculating to\ninclude art and design.",
+            "synopsis": "A monograph on the subject of shape grammars. The book is dedicated to showing how visual calculating in shape grammars includes symbolic calculating in classical computing machines and how in this way it broadens calculating to include art and design.",
             "cover": "covers/1.jpg",
             "group": 2
         },
         {
             "id": "2",
-            "title": "The Sciences of the\nArtificial. 3rd Edition (1996)",
+            "title": "The Sciences of the Artificial. 3rd Edition (1996)",
             "author": "Herbert A. Simon",
             "year": 1996,
             "class": "Artificial Intelligence",
-            "synopsis": "A seminal book on\ndesign and artificial\nintelligence. Among\nother important ideas, it\nincludes Simon\u2019s\neducational programme,\n\u201cThe Science of Design,\u201d\naimed at incorporating\nproblem-solving tools\nfrom artificial\nintelligence as aids to\nthe design process.",
+            "synopsis": "A seminal book on design and artificial intelligence. Among other important ideas, it includes Simon's educational programme, 'The Science of Design,' aimed at incorporating problem-solving tools from artificial intelligence as aids to the design process.",
             "cover": "covers/2.jpg",
             "group": 2
         },
         {
             "id": "3",
-            "title": "Computation: finite\nand infinite\nmachines (1967)",
+            "title": "Computation: finite and infinite machines (1967)",
             "author": "Marvin L. Minsky",
             "year": 1967,
             "class": "Computer Science",
-            "synopsis": "One of the best early\nbooks on abstract\nmodels of computation,\nbased on lecture notes\nfrom classes taught by\nMinsky at MIT. One of\nthe interesting aspects\nof the book is the indepth\ndiscussion of how\ndi!erent models of\ncomputation are\nconnected, such as the\nrelation of finite\nautomata to neural networks, of Turing\nmachines to recursive\nfunctions, of digital\ncomputers to register\nmachines.",
+            "synopsis": "One of the best early books on abstract models of computation, based on lecture notes from classes taught by Minsky at MIT. One of the interesting aspects of the book is the in-depth discussion of how different models of computation are connected, such as the relation of finite automata to neural networks, of Turing machines to recursive functions, of digital computers to register machines.",
             "cover": "covers/3.jpg",
             "group": 2
         },
         {
             "id": "4",
-            "title": "A History of\nModern Computing, 2nd Edition (1998)",
+            "title": "A History of Modern Computing, 2nd Edition (1998)",
             "author": "Paul E. Ceruzzi",
             "year": 1998,
             "class": "Social Science",
-            "synopsis": "A great book on the\nhistory of digital\ncomputers. Extensive\nanalyses of the di!erent\ndevelopments in\nhardware and software\nfrom the 1940s to early\n2000s, providing insight\ninto the corporate,\ncultural, and social\nenvironment\nsurrounding them.",
+            "synopsis": "A great book on the history of digital computers. Extensive analyses of the different developments in hardware and software from the 1940s to early 2000s, providing insight into the corporate, cultural, and social environment surrounding them.",
             "cover": "covers/4.jpg",
             "group": 2
         },
         {
             "id": "5",
-            "title": "Structural\ninformation theory:\nthe simplicity of\nvisual form (2012)",
-            "author": "Emanuel L. J. Leeuwenberg and Peter\nA. van der Helm",
+            "title": "Structural information theory: the simplicity of visual form (2012)",
+            "author": "Emanuel L. J. Leeuwenberg and Peter A. van der Helm",
             "year": 2012,
             "class": "Cognitive Science",
-            "synopsis": "This book covers in a\ncomprehensive way\n\"structural information\ntheory\", a theory about\nthe way the human\nvisual system organizes\na raw visual stimulus\ninto objects and object\nparts. The focus is on\nrepresentations of the\nhigher-level outcomes of\nthe perceptual process\nas opposed to process\nmechanisms at a lower\nneuro-cognitive level.",
+            "synopsis": "This book covers in a comprehensive way 'structural information theory', a theory about the way the human visual system organizes a raw visual stimulus into objects and object parts. The focus is on representations of the higher-level outcomes of the perceptual process as opposed to process mechanisms at a lower neuro-cognitive level.",
             "cover": "covers/5.jpg",
             "group": 2
         },
@@ -489,196 +539,238 @@
     ],
     "links": [
         {
+            "source": "0",
+            "target": "cat_1"
+        },
+        {
+            "source": "0",
+            "target": "cat_2"
+        },
+        {
+            "source": "0",
+            "target": "cat_3"
+        },
+        {
+            "source": "0",
+            "target": "cat_4"
+        },
+        {
+            "source": "0",
+            "target": "cat_5"
+        },
+        {
+            "source": "0",
+            "target": "cat_6"
+        },
+        {
+            "source": "0",
+            "target": "cat_7"
+        },
+        {
+            "source": "0",
+            "target": "cat_8"
+        },
+        {
+            "source": "0",
+            "target": "cat_9"
+        },
+        {
+            "source": "0",
+            "target": "cat_10"
+        },
+        
+
+        {
             "source": "cat_1",
-            "target": "book_0"
+            "target": "1"
         },
         {
             "source": "cat_2",
-            "target": "book_1"
+            "target": "2"
         },
         {
             "source": "cat_3",
-            "target": "book_2"
+            "target": "3"
         },
         {
             "source": "cat_4",
-            "target": "book_3"
+            "target": "4"
         },
         {
             "source": "cat_5",
-            "target": "book_4"
+            "target": "5"
         },
         {
             "source": "cat_6",
-            "target": "book_5"
+            "target": "6"
         },
         {
             "source": "cat_7",
-            "target": "book_6"
+            "target": "7"
         },
         {
             "source": "cat_1",
-            "target": "book_7"
+            "target": "8"
         },
         {
             "source": "cat_3",
-            "target": "book_8"
+            "target": "9"
         },
         {
             "source": "cat_8",
-            "target": "book_9"
+            "target": "10"
         },
         {
             "source": "cat_9",
-            "target": "book_10"
+            "target": "11"
         },
         {
             "source": "cat_10",
-            "target": "book_11"
+            "target": "12"
         },
         {
             "source": "cat_10",
-            "target": "book_12"
+            "target": "13"
         },
         {
             "source": "cat_6",
-            "target": "book_13"
+            "target": "14"
         },
         {
             "source": "cat_5",
-            "target": "book_14"
+            "target": "15"
         },
         {
             "source": "cat_7",
-            "target": "book_15"
+            "target": "16"
         },
         {
-            "source": "cat_11",
-            "target": "book_16"
-        },
-        {
-            "source": "cat_7",
-            "target": "book_17"
+            "source": "cat_9",
+            "target": "17"
         },
         {
             "source": "cat_7",
-            "target": "book_18"
-        },
-        {
-            "source": "cat_11",
-            "target": "book_19"
-        },
-        {
-            "source": "cat_8",
-            "target": "book_20"
-        },
-        {
-            "source": "cat_8",
-            "target": "book_21"
+            "target": "18"
         },
         {
             "source": "cat_7",
-            "target": "book_22"
+            "target": "19"
         },
         {
-            "source": "cat_1",
-            "target": "book_23"
-        },
-        {
-            "source": "cat_1",
-            "target": "book_24"
-        },
-        {
-            "source": "cat_1",
-            "target": "book_25"
-        },
-        {
-            "source": "cat_1",
-            "target": "book_26"
+            "source": "cat_9",
+            "target": "20"
         },
         {
             "source": "cat_8",
-            "target": "book_27"
+            "target": "21"
         },
         {
             "source": "cat_8",
-            "target": "book_28"
+            "target": "22"
+        },
+        {
+            "source": "cat_7",
+            "target": "23"
+        },
+        {
+            "source": "cat_1",
+            "target": "24"
+        },
+        {
+            "source": "cat_1",
+            "target": "25"
+        },
+        {
+            "source": "cat_1",
+            "target": "26"
+        },
+        {
+            "source": "cat_1",
+            "target": "27"
+        },
+        {
+            "source": "cat_8",
+            "target": "28"
+        },
+        {
+            "source": "cat_8",
+            "target": "29"
         },
         {
             "source": "cat_3",
-            "target": "book_29"
+            "target": "30"
         },
         {
             "source": "cat_2",
-            "target": "book_30"
+            "target": "31"
         },
         {
             "source": "cat_3",
-            "target": "book_31"
+            "target": "32"
         },
         {
             "source": "cat_3",
-            "target": "book_32"
+            "target": "33"
         },
         {
             "source": "cat_2",
-            "target": "book_33"
+            "target": "34"
         },
         {
             "source": "cat_2",
-            "target": "book_34"
+            "target": "35"
         },
         {
             "source": "cat_5",
-            "target": "book_35"
+            "target": "36"
         },
         {
             "source": "cat_4",
-            "target": "book_36"
+            "target": "37"
         },
         {
             "source": "cat_2",
-            "target": "book_37"
+            "target": "38"
         },
         {
             "source": "cat_2",
-            "target": "book_38"
+            "target": "39"
         },
         {
             "source": "cat_2",
-            "target": "book_39"
+            "target": "40"
         },
         {
             "source": "cat_4",
-            "target": "book_40"
+            "target": "41"
         },
         {
             "source": "cat_8",
-            "target": "book_41"
+            "target": "42"
         },
         {
             "source": "cat_8",
-            "target": "book_42"
+            "target": "43"
         },
         {
             "source": "cat_2",
-            "target": "book_43"
+            "target": "44"
         },
         {
             "source": "cat_8",
-            "target": "book_44"
+            "target": "45"
         },
         {
             "source": "cat_8",
-            "target": "book_45"
+            "target": "46"
         },
         {
             "source": "cat_8",
-            "target": "book_46"
+            "target": "47"
         },
         {
             "source": "cat_2",
-            "target": "book_47"
+            "target": "48"
         }
     ]
 }
