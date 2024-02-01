@@ -12,7 +12,9 @@ var svg = d3.select("#graph")
 // Tooltip for book details
 var tooltip = d3.select("body").append("div")
 .attr("class", "tooltip")
-.style("opacity", 0);
+.style("opacity", 1)
+.style("border-color",  "#ffffff")
+.style("border", "1px");
 
 // Simulation setup with all forces
 var simulation = d3.forceSimulation()
@@ -21,6 +23,16 @@ var simulation = d3.forceSimulation()
 .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("ES138-Graph-Data.json").then(function(graph) {
+    
+    // Initialize visibility for nodes and links
+    graph.nodes.forEach(node => {
+        node.visible = node.group === 0 || node.group === 1; // Only central and category nodes are visible initially
+    });
+    graph.links.forEach(link => {
+        link.visible = false; // Links are invisible initially
+    });
+
+    
     // Filter to show only central and category nodes initially
     var initialNodes = graph.nodes.filter(node => node.group === 0 || node.group === 1);
 
@@ -86,7 +98,9 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
                 .style("top", (event.pageY - 28) + "px")
                 .transition()
                 .duration(200)
-                .style("opacity", .9);
+                .style("opacity", 1)
+                .style("border-color", "#00000")
+                .style("border", "1px");
         })
         .on("mouseout", function() {
             tooltip.transition()
@@ -117,53 +131,67 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     }
 
     function clickNode(event, d) {
-        if (d.group === 1) { 
-            // Toggle the node's expanded state
-            d.expanded = !d.expanded;
+        if (d.group === 1) { // Check if a category node is clicked
+            d.expanded = !d.expanded; // Toggle the expanded state
 
-            if (d.expanded) {
-                // Add related book nodes and links
-                const newNodes = graph.books.filter(book => book.class === d.id);
-                const newLinks = newNodes.map(book => ({source: d.id, target: book.id}));
-                newNodes.forEach(node => graph.nodes.push(node));
-                newLinks.forEach(link => graph.links.push(link));
-        } else {
-        // Collapse: Remove related book nodes and links
-        graph.nodes = graph.nodes.filter(node => !(node.class === d.id && node.group === 2));
-        graph.links = graph.links.filter(link => link.source !== d.id && link.target !== d.id);
-        }
+            graph.nodes.forEach(node => {
+                if (node.class === d.id && node.group === 2) {
+                    node.visible = d.expanded; // Toggle visibility based on the expanded state
+                }
+            });
+            graph.links.forEach(link => {
+                if (link.source === d.id || link.target === d.id) {
+                    link.visible = d.expanded; // Toggle visibility based on the expanded state
+                }
+            });
 
-        // Rebind and restart simulation with updated nodes and links
-        restartSimulation();
+            // Rebind and restart simulation with updated nodes and links
+            restartSimulation();
         }
     }
 
     function restartSimulation() {
-        // Stop the current simulation
         simulation.stop();
 
+        // Update links with visibility
+        var link = svg.select(".links").selectAll("line")
+            .data(graph.links, function(d) { return d.index; });
 
-        var link = svg.select(".links").selectAll("line").data(graph.links);
-        var node = svg.select(".nodes").selectAll("circle").data(graph.nodes);
-
-        // Apply the general update pattern for the links
         link.exit().remove();
-        link.enter().append("line").merge(link);
+        link.enter().append("line").merge(link)
+            .style("display", d => d.visible ? "block" : "none");
 
-        // Apply the general update pattern for the nodes
+        // Update nodes with visibility
+        var node = svg.select(".nodes").selectAll("g")
+            .data(graph.nodes, function(d) { return d.id; });
+
         node.exit().remove();
-        node.enter().append("circle")
-            .attr("r", 10) 
-            .merge(node)
-            .attr("fill", function(d) { return d.group === 0 ? "deepgrey" : d.group === 1 ? "deeppurple" : "lightpurple"; })
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
+        var nodeEnter = node.enter().append("g");
 
-        node.on("click", clickNode);
+        nodeEnter.merge(node)
+            .style("display", d => d.visible ? "block" : "none");
 
-        // Restart the simulation with the new nodes and links
+        nodeEnter.call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+            .on("click", clickNode);
+
+        nodeEnter.append("circle")
+            .attr("r", function(d) { return d.group === 0 ? 8 : 5; })
+            .attr("fill", function(d) { return d.group === 0 ? "#505050" : d.group === 1 ? "#36013F" : "#D3D3D3"; });
+
+        nodeEnter.append("text")
+            .attr("dx", 12)
+            .attr("dy", "0.35em")
+            .text(function(d) { return d.title; })
+            .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
+            .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
+
+        // Apply updates to circles and texts separately if needed
+        // This might involve selecting them within each node group and updating their attributes
+
+        // Restart the simulation
         simulation.nodes(graph.nodes);
         simulation.force("link").links(graph.links);
         simulation.alpha(1).restart();
