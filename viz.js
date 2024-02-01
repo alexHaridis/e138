@@ -94,26 +94,28 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     // Tooltip for book details
     node.filter(d => d.group === 2) // Only for book nodes
         .on("mouseover", function(event, d) {
-            var htmlContent = `
+            var htmlContent = `<br><hr><br>
                 <div style="display: flex; flex-direction: row;">
-                    <img src='covers/${d.id}.jpg' style="flex: 50%; max-width: 50%;">
+                    <img src='covers/${d.id}.jpg' style="flex: 50%; max-width: 50%;"><br>
                     <div style="flex: 50%; padding-left: 10px; text-align: left;">
-                        <strong style="font-size: 14px;">${d.title}</strong><br/>
-                        <span style="font-size: 12px;">Authors: ${d.author}</span><br/>
-                        <span style="font-size: 12px;">Year: ${d.year}</span><br/>
+                        <strong style="font-size: 14px;">${d.title}</strong><br/><br><br>
+                        <span style="font-size: 12px;">Authors: ${d.author}</span><br/><br>
+                        <span style="font-size: 12px;">Year: ${d.year}</span><br/><br>
                         <span style="font-size: 12px;">Category: ${d.class}</span>
                     </div>
                 </div>
                 <div style="text-align: left; padding-top: 5px;">
                     ${d.synopsis}
-                </div>
+                </div><hr>
             `;
             tooltip.html(htmlContent)
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 28) + "px")
                 .transition()
                 .duration(200)
-                .style("opacity", 1);
+                .style("opacity", 1)
+                .style("border", "1px solid")
+                .style("border-color", "#000000");
         })
         .on("mouseout", function() {
             tooltip.transition()
