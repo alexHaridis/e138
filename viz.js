@@ -104,9 +104,9 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
                         <span style="font-size: 12px;">Category: ${d.class}</span>
                     </div>
                 </div>
-                <div style="text-align: left; padding-top: 5px;">
+                <div style="text-align: left; padding-top: 5px;"><hr><br>
                     ${d.synopsis}
-                </div><hr>
+                </div><br><hr>
             `;
             tooltip.html(htmlContent)
                 .style("left", (event.pageX + 10) + "px")

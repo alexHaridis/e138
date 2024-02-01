@@ -217,8 +217,8 @@ a:visited {
 
 .tooltip {
   position: absolute;
-  text-align: center;
-  width: 320px;
+  text-align: justify;
+  width: 350px;
   padding: 8px;
   font: 12px sans-serif;
   background: #FFFFFF;
