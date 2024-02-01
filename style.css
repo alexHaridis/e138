@@ -218,8 +218,8 @@ a:visited {
 .tooltip {
   position: absolute;
   text-align: center;
-  width: 200px;
-  padding: 2px;
+  width: auto;
+  padding: 8px;
   font: 12px sans-serif;
   background: lightsteelblue;
   border: 0px;
@@ -227,6 +227,8 @@ a:visited {
   pointer-events: none;
   opacity: 0;
 }
+
+
 @media screen and (max-width: 600px) {
   .wrap {
     padding: 0 12px;
