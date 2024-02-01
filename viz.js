@@ -91,24 +91,36 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         }
     });
 
+    // Tooltip for book details
     node.filter(d => d.group === 2) // Only for book nodes
         .on("mouseover", function(event, d) {
-            tooltip.html(`<strong>${d.title}</strong><br/>${d.author}<br/><img src='covers/${d.id}.jpg' width='100'><br/>${d.synopsis}`)
+            var htmlContent = `
+                <div style="display: flex; flex-direction: row;">
+                    <img src='covers/${d.id}.jpg' style="flex: 50%; max-width: 50%;">
+                    <div style="flex: 50%; padding-left: 10px; text-align: left;">
+                        <strong style="font-size: 14px;">${d.title}</strong><br/>
+                        <span style="font-size: 12px;">Authors: ${d.author}</span><br/>
+                        <span style="font-size: 12px;">Year: ${d.year}</span><br/>
+                        <span style="font-size: 12px;">Category: ${d.class}</span>
+                    </div>
+                </div>
+                <div style="text-align: left; padding-top: 5px;">
+                    ${d.synopsis}
+                </div>
+            `;
+            tooltip.html(htmlContent)
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 28) + "px")
                 .transition()
                 .duration(200)
-                .style("opacity", 1)
-                .style("border-color", "#00000")
-                .style("border", "1px");
+                .style("opacity", 1);
         })
         .on("mouseout", function() {
             tooltip.transition()
                 .duration(500)
                 .style("opacity", 0);
         });
-    
-    node.on("click",clickNode);
+
 
     simulation
         .nodes(graph.nodes)
