@@ -96,7 +96,7 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         .on("mouseover", function(event, d) {
             var htmlContent = `<br><hr><br>
                 <div style="display: flex; flex-direction: row;">
-                    <img src='covers/${d.id}.jpg' style="flex: 50%; max-width: 50%;"><br>
+                    <img src='covers/${d.id}.jpg' style="flex: 50%; width:auto; max-height:240px;"><br>
                     <div style="flex: 50%; padding-left: 10px; text-align: left;">
                         <strong style="font-size: 14px;">${d.title}</strong><br/><br><br>
                         <span style="font-size: 12px;">Authors: ${d.author}</span><br/><br>
