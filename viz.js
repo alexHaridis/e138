@@ -6,7 +6,10 @@ var width = 820, height = 600;
 var svg = d3.select("#graph")
 .attr("width", width)
 .attr("height", height)
-.attr("viewBox", [0, 0, width, height]);
+.attr("viewBox", [0, 0, width, height])
+.attr("preserveAspectRatio", "xMidYMid meet")
+
+
 
 
 // Tooltip for book details
@@ -18,8 +21,8 @@ var tooltip = d3.select("body").append("div")
 
 // Simulation setup with all forces
 var simulation = d3.forceSimulation()
-.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30))
-.force("charge", d3.forceManyBody().strength(-80))
+.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(72))
+.force("charge", d3.forceManyBody().strength(-68))
 .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("ES138-Graph-Data.json").then(function(graph) {
@@ -29,7 +32,7 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         node.visible = node.group === 0 || node.group === 1; // Only central and category nodes are visible initially
     });
     graph.links.forEach(link => {
-        link.visible = false; // Links are invisible initially
+        link.visible = link.souce === 0 || link.source === 1;// Links are invisible initially
     });
 
     
@@ -73,7 +76,7 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     node.append("text")
         .attr("dx", 12)
         .attr("dy", "0.35em")
-        .text(function(d) { return d.title; })
+        .text(function(d) { return d.label; })
         .style("font-size", function(d) { 
             return d.group === 0 || d.group === 1 ? "12px" : "10px"; 
         })

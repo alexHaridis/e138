@@ -4,67 +4,56 @@
             "id": "0",
             "title": "ES138",
             "group": 0,
-            "label": "ES138",
             "type": "central"
         },
         {
             "id": "cat_1",
             "title": "Shape Grammars",
-            "label": "Shape Grammars",
             "group": 1
         },
         {
             "id": "cat_2",
             "title": "Mathematics",
-            "label": "Mathematics",
             "group": 1
         },
         {
             "id": "cat_3",
             "title": "Computer Science",
-            "label": "Computer Science",
             "group": 1
         },
         {
             "id": "cat_4",
             "title": "Architecture",
-            "label": "Architecture",
             "group": 1
         },
         {
             "id": "cat_5",
             "title": "Literature",
-            "label": "Literature",
             "group": 1
         },
         {
             "id": "cat_6",
             "title": "Artificial Intelligence",
-            "label": "Artificial Intelligence",
             "group": 1
         },
         {
             "id": "cat_7",
             "title": "Cognitive Science",
-            "label": "Cognitive Science",
             "group": 1
         },
         {
             "id": "cat_8",
             "title": "Aesthetics",
-            "label": "Aesthetics",
             "group": 1
         },
         {
             "id": "cat_9",
             "title": "Design & Engineering",
-            "label": "Design & Engineering",
             "group": 1
         },
         {
             "id": "cat_10",
             "title": "Social Science & Technology",
-            "label": "Social Science & Technology",
             "group": 1
         },
         {
@@ -91,7 +80,7 @@
         },
         {
             "id": "3",
-            "title": "Computation: Finite and Infinite Machines (1967)",
+            "title": "Computation: finite and infinite machines (1967)",
             "label": "Computation: Finite and Infinite Machines",
             "author": "Marvin L. Minsky",
             "year": 1967,
@@ -113,8 +102,7 @@
         },
         {
             "id": "5",
-            "title": "Structural Information Theory: the simplicity of visual form (2012)",
-            "label": "Structural Information Theory",
+            "title": "Structural information theory: the simplicity of visual form (2012)",
             "author": "Emanuel L. J. Leeuwenberg and Peter A. van der Helm",
             "year": 2012,
             "class": "Cognitive Science",
@@ -124,8 +112,7 @@
         },
         {
             "id": "6",
-            "title": "Linear Algebra and Learning from Data (2019)",
-            "label": "Linear Algebra and Learning from Data",
+            "title": "Linear algebra and\nlearning from data (2019)",
             "author": "Gilbert Strang",
             "year": 2019,
             "class": "Mathematics",
@@ -135,8 +122,7 @@
         },
         {
             "id": "7",
-            "title": "Aesthetic Measure (1933)",
-            "label": "Aesthetic Measure",
+            "title": "Aesthetic measure (1933)",
             "author": "George David Birkhoff",
             "year": 1933,
             "class": "Aesthetics",
@@ -147,7 +133,6 @@
         {
             "id": "8",
             "title": "Transformations in\nDesign: A Formal\nApproach to\nStylistic Change\nand Innovation in\nthe Visual Arts (1994)",
-            "label": "Transformations in Design",
             "author": "Terry Knight",
             "year": 1994,
             "class": "Shape Grammars",
@@ -157,8 +142,7 @@
         },
         {
             "id": "9",
-            "title": "Introduction to the\nTheory of\nComputation, 3rd Edition (2012)",
-            "label": "Introduction to the Theory of Computation",
+            "title": "Introduction to the\ntheory of\ncomputation, 3rd Edition (2012)",
             "author": "Michael Sipser",
             "year": 2012,
             "class": "Computer Science",
@@ -168,8 +152,7 @@
         },
         {
             "id": "10",
-            "title": "Architectural\nGeometry (2007)",
-            "label": "Architectula Geometry",
+            "title": "Architectural\ngeometry (2007)",
             "author": "Helmut Pottmann,\nAndreas Asperl, Michael\nHofer, and Axel Kilian",
             "year": 2007,
             "class": "Architecture",
@@ -179,8 +162,7 @@
         },
         {
             "id": "11",
-            "title": "Formal Engineering\nDesign Synthesis (2001)",
-            "label": "Formal Engineering Design Synthesis",
+            "title": "Formal engineering\ndesign synthesis (2001)",
             "author": "Erik K. Antonsson and Jonathan Cagan (Editors)",
             "year": 2001,
             "class": "Engineering",
@@ -190,19 +172,17 @@
         },
         {
             "id": "12",
-            "title": "Logicomix: an Epic Search for Truth (2008)",
-            "label": "Logicomix",
+            "title": "Logicomix: an epic search for truth (2008)",
             "author": "Apostolos Doxiadis",
             "year": 2008,
             "class": "Literature",
-            "synopsis": "This book is a graphic novel that follows mathematician Bertrand Russell's quest for truth. The story, presented as a lecture about Russell's life, intertwines personal struggles, historical events, and mathematical concepts in a captivating exploration of the pursuit of logical certainty.",
+            "synopsis": "covering curves and",
             "cover": "covers/12.jpg",
             "group": 2
         },
         {
             "id": "13",
             "title": "Coleridge on\nImagination (1960)",
-            "label": "Coleridge on Imagination",
             "author": "I.A. Richards",
             "year": 1960,
             "class": "Literature",
@@ -212,8 +192,7 @@
         },
         {
             "id": "14",
-            "title": "The Four Pillars of Geometry (2005)",
-            "label": "The Four Pillars of Geometry",
+            "title": "The four pillars of geometry (2005)",
             "author": "John Stillwell",
             "year": 2005,
             "class": "Mathematics",
@@ -224,205 +203,186 @@
         {
             "id": "15",
             "title": "Cognitive Psychology and Its Implications, 6th Edition (2004)",
-            "label": "Cognitive Psychology and Its Implications",
             "author": "John R. Anderson",
             "year": 2004,
             "class": "Cognitive Science",
-            "synopsis": "This book explores key cognitive processes and their real-world applications. It provides concise insights into memory, problem-solving, and decision-making, making it a valuable resource for students and professionals in various fields.",
+            "synopsis": 16.0,
             "cover": "covers/15.jpg",
             "group": 2
         },
         {
             "id": "16",
             "title": "Part & Whole",
-            "label": "Part & Whole",
             "author": "J. Koenderink",
             "year": "N/A",
             "class": "Aesthetics",
-            "synopsis": "This book examines how individual components shape our perception of the whole and vice versa. It explores this relationship across disciplines, challenging conventional ideas and emphasizing its profound impact on our understanding of the world.",
+            "synopsis": null,
             "cover": "covers/16.jpg",
             "group": 2
         },
         {
             "id": "17",
             "title": "The Design of Everyday Things (1988)",
-            "label": "Design of Everyday Things",
             "author": "Donald A. Norman",
             "year": 1988,
             "class": "Design",
-            "synopsis": "This book highlights user-centered design principles for creating intuitive and user-friendly products. With real-world examples, he emphasizes the significance of thoughtful design in enhancing user experience and usability.",
+            "synopsis": null,
             "cover": "covers/17.jpg",
             "group": 2
         },
         {
             "id": "18",
             "title": "Aesthetics of the Familiar: Everyday Life and World-Making (2017)",
-            "label": "Aesthetics of the Familiar",
             "author": "Yuriko Saito",
             "year": 2017,
             "class": "Aesthetics",
-            "synopsis": "This book redefines aesthetics,emphasizing the beauty within everyday life. The book encourages readers to see the profound aesthetic value in ordinary elements, advocating for a broader perspective on what constitutes the richness of our daily experiences.",
+            "synopsis": null,
             "cover": "covers/18.jpg",
             "group": 2
         },
         {
             "id": "19",
-            "title": "Beyond Price: Value in Culture, Economics, and the\nArts. (2008)",
-            "label": "Beyond Price",
+            "title": "Beyond price: value in culture, economics, and the\narts. (2008)",
             "author": "Michael Hutter and David Throsby",
             "year": 2008,
             "class": "Aesthetics",
-            "synopsis": "This book explores the multifaceted nature of value in culture and the arts, challenging the notion that value is solely economic. The authors highlight the interplay between intrinsic, social, and symbolic values in cultural goods, emphasizing the importance of recognizing and preserving cultural richness beyond monetary considerations.",
+            "synopsis": null,
             "cover": "covers/19.jpg",
             "group": 2
         },
         {
             "id": "20",
             "title": "What Makes Things (2017)",
-            "label": "What Makes Things",
             "author": "Derek Thompson",
             "year": 2017,
             "class": "Design",
-            "synopsis": "This book decodes the psychology behind successful ideas and trends, unraveling the factors that transform the ordinary into the extraordinary in our interconnected world.",
+            "synopsis": null,
             "cover": "covers/20.jpg",
             "group": 2
         },
         {
             "id": "21",
             "title": "On Painting and Sculpture (1972)",
-            "label": "On Painting and Sculpture",
             "author": "Leon B. Alberti",
             "year": 1972,
             "class": "Architecture",
-            "synopsis": "This book shapes Renaissance art by emphasizing the fusion of creativity and geometry, introducing istoria for narrative depth. The treatise underscores the artist's dual role as both a creative talent and skilled craftsman",
+            "synopsis": null,
             "cover": "covers/21.jpg",
             "group": 2
         },
         {
             "id": "22",
             "title": "Ugliness and Judgment: On Architecture in the Public Eye (2019)",
-            "label": "Ugliness and Judgment",
             "author": "Timothy Hyde",
             "year": 2019,
             "class": "Architecture",
-            "synopsis": "This book redefines architectural beauty, examining its impact on public perception. Through historical and modern examples, Hyde challenges preconceptions, prompting readers to reflect on the subjective nature of architectural aesthetics and the societal influences shaping our urban spaces.",
+            "synopsis": null,
             "cover": "covers/22.jpg",
             "group": 2
         },
         {
             "id": "23",
             "title": "A Philosopher Looks at Architecture (2021)",
-            "label": "A Philosopher Looks at Architecture",
             "author": "Paul Guyer",
             "year": 2021,
             "class": "Aesthetics",
-            "synopsis":"This book examines how philosophy influences our perception of built environments, encouraging readers to reconsider the deep connections between philosophy and contemporary architectural thinking.",
+            "synopsis": null,
             "cover": "covers/23.jpg",
             "group": 2
         },
         {
             "id": "24",
             "title": "Algorithmic Aesthetics: Computer Models for Criticism and\nDesign in the Arts (1978)",
-            "label": "Algorithmic Aesthetics",
             "author": "George Stiny and James Gips",
             "year": 1978,
             "class": "Shape Grammars",
-            "synopsis": "This book introduces a groundbreaking perspective on art, treating designs as algorithms. The book advocates for merging computational thinking with artistic creativity, revolutionizing the relationship between technology and art.",
+            "synopsis": null,
             "cover": "covers/24.jpg",
             "group": 2
         },
         {
             "id": "25",
             "title": "Shape of Imagination: Calculating in Coleridge\u2019s Magical Realm (2022)",
-            "label": "Shapes of Imagination",
             "author": "George Stiny",
             "year": 2022,
             "class": "Shape Grammars",
-            "synopsis": "This book probes the synergy between imagination and calculation in Coleridge's literary realm. The book unravels how Coleridge fuses poetic creativity with mathematical processes, offering a unique perspective on the interplay between art and science during the Romantic era.",
+            "synopsis": null,
             "cover": "covers/25.jpg",
             "group": 2
         },
         {
             "id": "26",
             "title": "Classical and Non-Classical Computation (1976)",
-            "label": "Classical and Non-Classical Computation",
             "author": "Terry Knight and George Stiny",
             "year": 1976,
             "class": "Shape Grammars",
-            "synopsis": "This book explores conventional and innovative computational models. The authors challenge traditional perspectives, highlighting non-classical approaches and encouraging a broader understanding of computation beyond established norms.",
+            "synopsis": null,
             "cover": "covers/26.jpg",
             "group": 2
         },
         {
             "id": "27",
-            "title": "Kindergarten Grammars: Designing with Froebel's Building Gifts (2017)",
-            "label": "Kindergarten Grammars",
+            "title": "Kindergarten Grammars: Designing with Froebel\u2019s Building Gifts (2017)",
             "author": "George Stiny",
             "year": 2017,
             "class": "Shape Grammars",
-            "synopsis": "This book explores the application of Friedrich Froebel's building gifts in design. Stiny draws connections between Froebel's educational philosophy and contemporary design principles, emphasizing the importance of play and exploration in shaping creative thinking.",
+            "synopsis": null,
             "cover": "covers/27.jpg",
             "group": 2
         },
         {
             "id": "28",
             "title": "The Logic of Architecture: Design, Computation, and Cognition (1990)",
-            "label": "The Logic of Architecture",
             "author": "William J. Mitchell",
             "year": 1990,
             "class": "Architecture",
-            "synopsis": "This book explores the integration of computation and cognition in design. It emphasizes the transformative role of technology, particularly computer-aided design, in shaping and augmenting architectural creativity.",
+            "synopsis": null,
             "cover": "covers/28.jpg",
             "group": 2
         },
         {
             "id": "29",
             "title": "Mathematics and Architecture Since 1960 (2002)",
-            "label": "Mathematics and Architecture Since 1960",
             "author": "Lionel March",
             "year": 2002,
             "class": "Architecture",
-            "synopsis": "This book examines the profound influence of mathematical principles and computational tools on architectural design during this period. Through case studies, it highlights the dynamic interplay between mathematics and architecture, revealing transformative impacts on aesthetics, form, and structure.",
+            "synopsis": null,
             "cover": "covers/29.jpg",
             "group": 2
         },
         {
             "id": "30",
             "title": "Structure in Drawings and the Hidden-Surface Problem. (1973)",
-            "label": "Structure in Drawings",
             "author": "Ivan Sutherland",
             "year": 1973,
             "class": "Computer Science",
-            "synopsis": "This book introduces a hierarchical approach to represent 3D objects and innovative algorithms to tackle the hidden-surface problem in computer graphics. This significantly influences the field, shaping how virtual environments are constructed and viewed.",
+            "synopsis": null,
             "cover": "covers/30.jpg",
             "group": 2
         },
         {
             "id": "31",
             "title": "Computing Machinery and Intelligence. (1950)",
-            "label": "Computing Machinery and Intelligence",
             "author": "Alan M. Turing",
             "year": 1950,
             "class": "Artificial Intelligence",
-            "synopsis":"This introduces the Turing Test, a pivotal concept in artificial intelligence. Turing explores whether machines can display human-like intelligence, presenting a thought experiment involving a judge interacting with a hidden computer and a human. The paper remains influential, sparking ongoing debates on machine intelligence and its implications for our understanding of human cognition.",
+            "synopsis": null,
             "cover": "covers/31.jpg",
             "group": 2
         },
         {
             "id": "32",
             "title": "Problem-Solving Machines (1950)",
-            "label": "Problem-Solving Machines",
             "author": "Allan Newell and Herbert Simon",
             "year": 1950,
             "class": "Computer Science",
-            "synopsis": "This book lays the groundwork for artificial intelligence, proposing the concept of universal problem-solving machines. This influential work shapes the trajectory of AI development by advocating for computer programs that emulate human problem-solving processes.",
+            "synopsis": null,
             "cover": "covers/32.jpg",
             "group": 2
         },
         {
             "id": "33",
             "title": "Computer Science as Empirical Inquiry: Symbols and\nSearch. (1976)",
-            "label": "Computer Science as Empirical Inquiry",
             "author": "Allan Newell and Herbert Simon",
             "year": 1976,
             "class": "Computer Science",
@@ -433,7 +393,6 @@
         {
             "id": "34",
             "title": "Steps Towards Artificial Intelligence (1960)",
-            "label": "Steps Towards Artificial Intelligence",
             "author": "Marvin Minsky",
             "year": 1960,
             "class": "Artificial Intelligence",
@@ -444,7 +403,6 @@
         {
             "id": "35",
             "title": "Artificial Intelligence, A Modern Approach, 4th Edition (2020)",
-            "label": "Artificial Intelligence",
             "author": "Stuart Russell and Peter Norvig,",
             "year": 2020,
             "class": "Artificial Intelligence",
@@ -455,7 +413,6 @@
         {
             "id": "36",
             "title": "Necessary Conditions of Learning (2014)",
-            "label": "Necessary Conditions of Learning",
             "author": "Ference Marton",
             "year": 2014,
             "class": "Cognitive Science",
@@ -466,7 +423,6 @@
         {
             "id": "37",
             "title": "The Closed World: Computers and the Politics of Discourse in Cold War\nAmerica (1996)",
-            "label": "The Closed World",
             "author": "Paul N. Edwards",
             "year": 1996,
             "class": "Social Science",
@@ -477,72 +433,66 @@
         {
             "id": "38",
             "title": "The End of Programming (2023)",
-            "label": "The End of Programming",
             "author": "Matt Welsh",
             "year": 2023,
             "class": "Artificial Intelligence",
-            "synopsis": "This explores the evolving landscape of coding, highlighting how automation, AI, and low-code platforms are reshaping the role of programmers. He envisions a future where programming becomes more abstract and accessible, transforming the nature of work in the digital age.",
+            "synopsis": null,
             "cover": "covers/38.jpg",
             "group": 2
         },
         {
             "id": "39",
             "title": "Deep Learning (2016)",
-            "label": "Deep Learning",
             "author": "Ian Goodfellow, Yoshua Bengio and Aaron Courville",
             "year": 2016,
             "class": "Artificial Intelligence",
-            "synopsis": "This is a  fundamental guide by Goodfellow, Bengio, and Courville, offering a concise overview of neural networks and their applications, suitable for both beginners and experts in the field.",
+            "synopsis": null,
             "cover": "covers/39.jpg",
             "group": 2
         },
         {
             "id": "40",
             "title": "What is ChatGPT Doing... and Why Does It Work? (2023)",
-            "label": "What is ChatGPT Doing?",
             "author": "Stephen Wolfram",
             "year": 2023,
             "class": "Artificial Intelligence",
-            "synopsis":"In this short book, prominent scientist and computation pioneer Stephen Wolfram provides a readable and engaging explanation that draws on his decades-long unique experience at the frontiers of science and technology. Find out how the success of ChatGPT brings together the latest neural net technology with foundational questions about language and human thought posed by Aristotle more than two thousand years ago.",
+            "synopsis": null,
             "cover": "covers/40.jpg",
             "group": 2
         },
         {
             "id": "41",
             "title": "Engineering Knowledge: The Construction of Knowledge in Artificial Intelligence (1993)",
-            "label": "Construction of Knowledge in Artificial Intelligence",
             "author": "Diana E. Forsythe",
             "year": 1993,
             "class": "Social Science",
-            "synopsis": "This book delves into the interplay between engineering practices and cultural influences in shaping AI knowledge, offering concise insights into the dynamic relationship between technical expertise and societal factors in the field of artificial intelligence.",
+            "synopsis": null,
+            "cover": "covers/41.jpg",
             "group": 2
         },
         {
             "id": "42",
             "title": "Architectural Intelligence: How Designers and Architects Created the\nDigital Landscape (2017)",
-            "label": "Architectural Intelligence",
             "author": "Molly Wright Steenson",
             "year": 2017,
             "class": "Architecture",
-            "synopsis": "This explores the symbiotic relationship between architecture and technology, tracing the evolution of digital design and its impact on our modern digital landscape.",
+            "synopsis": null,
             "cover": "covers/42.jpg",
             "group": 2
         },
         {
             "id": "43",
             "title": "Machine Learning: Architecture in the Age of Artificial Intelligence (2022)",
-            "label": "Architecture in the Age of AI",
             "author": "Phil Bernstein",
             "year": 2022,
             "class": "Architecture",
-            "synopsis": "This explores how AI is revolutionizing architecture, blending human creativity with computational capabilities for innovative design solutions.",
+            "synopsis": null,
             "cover": "covers/43.jpg",
             "group": 2
         },
         {
             "id": "44",
             "title": "The Age of AI: And Our Human Future (2021)",
-            "label": "The Age of AI",
             "author": "Henry Kissinger, Eric Schmidt and Daniel Huttenlocher",
             "year": 2021,
             "class": "Artificial Intelligence",
@@ -552,8 +502,7 @@
         },
         {
             "id": "45",
-            "title": "Builders of the Vision: Software and the imagination of Design (2015)",
-            "label": "Builders of the Vision",
+            "title": "Builders of the vision: software and the imagination of design (2015)",
             "author": "Daniel Cardoso Llach",
             "year": 2015,
             "class": "Architecture",
@@ -564,7 +513,6 @@
         {
             "id": "46",
             "title": "Architectural\nMorphology: Introduction to the Geometry of Building Plans (1983)",
-            "label": "Architectural Morphology",
             "author": "Philip Steadman",
             "year": 1983,
             "class": "Architecture",
@@ -575,7 +523,6 @@
         {
             "id": "47",
             "title": "Building Types and Built Forms (2014)",
-            "label": "Building Types and Built Forms",
             "author": "Philip Steadman",
             "year": 2014,
             "class": "Architecture",
@@ -586,7 +533,6 @@
         {
             "id": "48",
             "title": "The Society of Mind (1986)",
-            "label": "The Society of Mind",
             "author": "Marvin Minsky",
             "year": 1986,
             "class": "Artificial Intelligence",
