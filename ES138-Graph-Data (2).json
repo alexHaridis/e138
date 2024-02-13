@@ -604,7 +604,7 @@
             "synopsis": "Focusing on the modernist movement, this book explores how industrialization influenced architects like Le Corbusier, Gropius, and van der Rohe. It delves into the interplay between technological advancements and design theory, highlighting the era's innovative approaches to integrating mechanization into architecture and design. It is one of the well-known books on what is known as rationalism.",
             "cover": "covers/49.jpg",
             "group": 2
-        }        
+        },        
         {
             "id": "50",
             "title": "The Alphabet and the Algorithm",
@@ -615,7 +615,7 @@
             "synopsis":"Examines the impact of digital technology on architectural design. Carpo explores the transition from a culture based on the written word (the alphabet) to one influenced by numerical computation (the algorithm). The book discusses how digital tools and algorithms have transformed the architectural design process, challenging traditional modes of representation and conception. Carpo explores the implications of this shift in the context of architecture and design history, offering insights into the evolving relationship between technology and the built environment.",
             "cover": "covers/50.jpg",
             "group": 2
-        }  
+        },  
         {
             "id": "51",
             "title": "Notes on the Synthesis of Form",
@@ -626,7 +626,7 @@
             "synopsis":"One of the first theoretical books on architecture that employs mathematics for the description of functions satisfying specific human needs. The mathematics are based mainly on set theory and are fully developed in a long appendix. Another appendix demonstrates the application of the method to the design of an Indian village. In this book, Alexander makes an important distinction between traditional un-self-conscious cultures and our own self-conscious culture of professionally or academically educated designers.",
             "cover": "covers/51.jpg",
             "group": 2
-        }
+        },
         {
             "id": "52",
             "title": "Design by Optimization in Architecture, Building, and Construction",
@@ -637,7 +637,7 @@
             "synopsis": "A comprehensive exploration of applying optimization techniques in architectural design. The book covers fundamental optimization concepts, such as the notion of a design space and its exploration, and includes practical applications in architectural projects, and case studies. An important resource for anyone that wishes to delve deeper into the relationship of design and mathematical optimization.",
             "cover": "covers/52.jpg",
             "group": 2
-        }    
+        },    
         {
             "id": "53",
             "title": "The Geometry of Environment: An Introduction to Spatial Organization in Design",
@@ -649,7 +649,6 @@
             "cover": "covers/53.jpg",
             "group": 2
         }
-        }  
     ],
     "links": [
         {
@@ -885,28 +884,26 @@
         {
             "source": "cat_6",
             "target": "48"
-        }
+        },
         {
             "source": "cat_9",
             "target": "49"
-        }
+        },
         {
             "source": "cat_4",
             "target": "50"
-        }
+        },
         {
             "source": "cat_4",
             "target": "51"
-        }
+        },
         {
             "source": "cat_4",
             "target": "52"
-        }
+        },
         { 
               "source": "cat_4",
-              "target": "53"
-
-        
+              "target": "53" 
         }
     ] 
 }
