@@ -9,6 +9,9 @@ var svg = d3.select("#graph")
 .attr("viewBox", [0, 0, width, height])
 .attr("preserveAspectRatio", "xMidYMid meet")
 
+
+
+
 // Tooltip for book details
 var tooltip = d3.select("body").append("div")
 .attr("class", "tooltip")
@@ -29,24 +32,31 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         node.visible = node.group === 0 || node.group === 1; // Only central and category nodes are visible initially
     });
     graph.links.forEach(link => {
-        // Find the source and target nodes for each link
-         const sourceNode = graph.nodes.find(node => node.id === link.source);
-         const targetNode = graph.nodes.find(node => node.id === link.target);
-    
-            // Make a link visible only if it connects the central node with a category node
-        link.visible = (sourceNode.group === 0 && targetNode.group === 1) || (sourceNode.group === 1 && targetNode.group === 0);
+        link.visible = link.souce === 0 || link.source === 1;// Links are invisible initially
     });
+
+    
+    // Filter to show only central and category nodes initially
+    var initialNodes = graph.nodes.filter(node => node.group === 0 || node.group === 1);
+
+    // Adjust links to ensure they only include those where both source and target nodes are present
+    var initialLinks = graph.links.filter(link => 
+        initialNodes.some(node => node.id === link.source) && 
+        initialNodes.some(node => node.id === link.target)
+    );
+    
+    
 
     var link = svg.append("g")
         .attr("class", "links")
         .selectAll("line")
-        .data(graph.links.filter(link => link.visible))
+        .data(graph.links)
         .enter().append("line");
 
     var node = svg.append("g")
         .attr("class", "nodes")
         .selectAll("g")
-        .data(graph.nodes.filter(node => node.visible))
+        .data(graph.nodes)
         .enter().append("g")
         .call(d3.drag()
             .on("start", dragstarted)
@@ -60,8 +70,7 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         })
         .attr("fill", function(d) { 
         return d.group === 0 ? "#505050" : d.group === 1 ? "#36013F" : "#D3D3D3"; 
-        })
-        .on("click", clickNode);;
+        });
 
     // Append text labels to the node groups
     node.append("text")
@@ -75,6 +84,15 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
             return d.group === 0 || d.group === 1 ? "bold" : "normal"; 
         })
         //.style("text-anchor", "middle");
+    
+    
+    initialLinks.forEach(link => {
+        const sourceExists = initialNodes.some(node => node.id === link.source);
+        const targetExists = initialNodes.some(node => node.id === link.target);
+        if (!sourceExists || !targetExists) {
+            console.error('Missing node for link: ', link);
+        }
+    });
 
     // Tooltip for book details
     node.filter(d => d.group === 2) // Only for book nodes
@@ -130,71 +148,72 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     }
 
     function clickNode(event, d) {
-        if (d.group === 1) { // If a category node is clicked
-            // Update visibility for all nodes and links connected to the clicked category node
-            graph.links.forEach(link => {
-                if (link.source.id === d.id || link.target.id === d.id) {
-                    link.visible = true; // Make the link visible
-                    // Find and make the connected nodes visible
-                    const connectedNodeId = link.source.id === d.id ? link.target.id : link.source.id;
-                    const connectedNode = graph.nodes.find(node => node.id === connectedNodeId);
-                    connectedNode.visible = true;
+        if (d.group === 1) { // Check if a category node is clicked
+            d.expanded = !d.expanded; // Toggle the expanded state
+
+            graph.nodes.forEach(node => {
+                if (node.class === d.id && node.group === 2) {
+                    node.visible = d.expanded; // Toggle visibility based on the expanded state
                 }
             });
-            restartSimulation(); // Restart the simulation with updated visibility
+            graph.links.forEach(link => {
+                if (link.source === d.id || link.target === d.id) {
+                    link.visible = d.expanded; // Toggle visibility based on the expanded state
+                }
+            });
+
+            // Rebind and restart simulation with updated nodes and links
+            restartSimulation();
         }
     }
-    
+
     function restartSimulation() {
-        // Update the simulation's nodes and links with the filtered data
-        simulation.nodes(graph.nodes.filter(d => d.visible));
-        simulation.force("link").links(graph.links.filter(d => d.visible));
-    
-        // Update the links
-        link = link.data(simulation.force("link").links(), d => d.source.id + "-" + d.target.id);
+        simulation.stop();
+
+        // Update links with visibility
+        var link = svg.select(".links").selectAll("line")
+            .data(graph.links, function(d) { return d.index; });
+
         link.exit().remove();
-        link = link.enter().append("line")
-            .merge(link)
-            .attr("stroke", "#999")
-            .style("stroke-opacity", 0.6);
-    
-        // Update the nodes
-        node = node.data(simulation.nodes(), d => d.id);
+        link.enter().append("line").merge(link)
+            .style("display", d => d.visible ? "block" : "none");
+
+        // Update nodes with visibility
+        var node = svg.select(".nodes").selectAll("g")
+            .data(graph.nodes, function(d) { return d.id; });
+
         node.exit().remove();
         var nodeEnter = node.enter().append("g");
-    
+
+        nodeEnter.merge(node)
+            .style("display", d => d.visible ? "block" : "none");
+
+        nodeEnter.call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+            .on("click", clickNode);
+
         nodeEnter.append("circle")
-            .attr("r", 5)
-            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; });
-    
+            .attr("r", function(d) { return d.group === 0 ? 8 : 5; })
+            .attr("fill", function(d) { return d.group === 0 ? "#505050" : d.group === 1 ? "#36013F" : "#D3D3D3"; });
+
         nodeEnter.append("text")
-            .text(function(d) { return d.label; })
-            .attr("x", 8)
-            .attr("y", "0.31em");
-    
-        node = nodeEnter.merge(node);
-    
-        node.selectAll("circle")
-            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; });
-    
-        node.selectAll("text")
-            .text(function(d) { return d.label; });
-    
-        // Apply the general update pattern to the links
-        link = svg.select(".links").selectAll("line")
-            .data(simulation.force("link").links(), d => d.source.id + "-" + d.target.id);
-    
-        link.exit().remove();
-        link = link.enter().append("line")
-            .merge(link)
-            .attr("stroke", "#999")
-            .style("stroke-opacity", 0.6);
-    
+            .attr("dx", 12)
+            .attr("dy", "0.35em")
+            .text(function(d) { return d.title; })
+            .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
+            .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
+
+        // Apply updates to circles and texts separately if needed
+        // This might involve selecting them within each node group and updating their attributes
+
         // Restart the simulation
+        simulation.nodes(graph.nodes);
+        simulation.force("link").links(graph.links);
         simulation.alpha(1).restart();
     }
-    
-    
+
 
 
     function mouseover(event, d) {
