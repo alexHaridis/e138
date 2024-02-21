@@ -156,12 +156,15 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         link = link.enter().append("line")
             .merge(link)
             .attr("stroke", "#999")
-            .style("stroke-opacity", 0.6);
+            .style("stroke-opacity", 0.8);
     
         // Update the nodes
         node = node.data(simulation.nodes(), d => d.id);
         node.exit().remove();
-        var nodeEnter = node.enter().append("g");
+        var nodeEnter = node.enter().append("g").call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
     
         nodeEnter.append("circle")
             .attr("r", 5)
@@ -195,7 +198,10 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
             .merge(link)
             .attr("stroke", "#999")
             .style("stroke-opacity", 0.6);
-    
+
+        simulation.nodes(graph.nodes.filter(d => d.visible))
+            .force("link").links(graph.links.filter(d => d.visible));
+            
         // Restart the simulation
         simulation.alpha(1).restart();
     }
