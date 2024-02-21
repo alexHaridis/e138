@@ -165,17 +165,23 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     
         nodeEnter.append("circle")
             .attr("r", 5)
-            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; });
-    
+            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; })
+            .on("mouseover", mouseover) 
+            .on("mouseout", mouseout);
+            
         nodeEnter.append("text")
+            .attr("dx", 12)
+            .attr("dy", "0.35em")
             .text(function(d) { return d.label; })
-            .attr("x", 8)
-            .attr("y", "0.31em");
+            .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
+            .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
     
         node = nodeEnter.merge(node);
     
         node.selectAll("circle")
-            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; });
+            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; })
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout); 
     
         node.selectAll("text")
             .text(function(d) { return d.label; });
@@ -199,13 +205,28 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
 
     function mouseover(event, d) {
         if (d.group === 2) { // Show tooltip only for book nodes
-            var imagePath = "covers/" + d.cover; // Prepend the 'covers/' path to the image filename
-            tooltip.transition()
+            var htmlContent = `<br><hr><br>
+                <div style="display: flex; flex-direction: row;">
+                    <img src='covers/${d.id}.jpg' style="flex: 50%; width:auto; max-height:240px;"><br>
+                    <div style="flex: 50%; padding-left: 10px; text-align: left;">
+                        <strong style="font-size: 14px;">${d.title}</strong><br/><br><br>
+                        <span style="font-size: 12px;">Authors: ${d.author}</span><br/><br>
+                        <span style="font-size: 12px;">Year: ${d.year}</span><br/><br>
+                        <span style="font-size: 12px;">Category: ${d.class}</span>
+                    </div>
+                </div>
+                <div style="text-align: left; padding-top: 5px;"><hr><br>
+                    ${d.synopsis}
+                </div><br><hr>
+            `;
+            tooltip.html(htmlContent)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px")
+                .transition()
                 .duration(200)
-                .style("opacity", .9);
-                tooltip.html(d.title + "<br/>" + d.author + "<br/><img src='" + imagePath + "' width='100'/>")
-                .style("left", (event.pageX) + "px")
-                .style("top", (event.pageY - 28) + "px");
+                .style("opacity", 1)
+                .style("border", "1px solid")
+                .style("border-color", "#000000");
         }
     }
 
