@@ -17,7 +17,7 @@ var tooltip = d3.select("body").append("div")
 // Simulation setup with all forces
 var simulation = d3.forceSimulation()
 .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(72))
-.force("charge", d3.forceManyBody().strength(-68))
+.force("charge", d3.forceManyBody().strength(-75))
 .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("ES138-Graph-Data.json").then(function(graph) {
@@ -151,8 +151,8 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         // Enter any new links and update existing ones
         link = link.enter().append("line")
                     .merge(link)
-                    .attr("stroke", "#999")
-                    .attr("stroke-opacity", 0.8);
+                    .attr("stroke", "#000000")
+                    .attr("stroke-opacity", 1);
     
         // Remove any old links
         link.exit().remove();
