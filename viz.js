@@ -17,7 +17,7 @@ var tooltip = d3.select("body").append("div")
 // Simulation setup with all forces
 var simulation = d3.forceSimulation()
 .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(72))
-.force("charge", d3.forceManyBody().strength(-75))
+.force("charge", d3.forceManyBody().strength(-80))
 .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("ES138-Graph-Data.json").then(function(graph) {
@@ -181,6 +181,7 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
                  .text(function(d) { return d.label; })
                  .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
                  .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
+                 //.style("text-anchor", "middle");
     
         // Merge enter and update for nodes
         node = nodeEnter.merge(node);
