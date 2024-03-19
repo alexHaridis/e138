@@ -1,5 +1,22 @@
 var width = 820, height = 600;
 
+// Define color for the central node
+const centralNodeColor = "#1fa040"; 
+
+// Define colors for category nodes
+const categoryColors = [
+    "#FFB3A7", // Shape Grammars 
+    "#85C1E9", // Mathematics -
+    "#FAD7A0", // Computer Science 
+    "#82E0AA", // Architecture 
+    "#F7DC6F", // Literature 
+    "#C39BD3", // Artificial Intelligence 
+    "#76D7C4", // Cognitive Science 
+    "#FF474C", // Aesthetics 
+    "#BB8FCE", // Design & Engineering 
+    "#7FB3D5"  // Social Science & Technology 
+];
+
 // Append SVG to the body
 var svg = d3.select("#graph")
 .attr("width", width)
@@ -27,11 +44,11 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         node.visible = node.group === 0 || node.group === 1; 
     });
     graph.links.forEach(link => {
-        // Find the source and target nodes for each link
+        // Finding the source and target nodes for each link
          const sourceNode = graph.nodes.find(node => node.id === link.source);
          const targetNode = graph.nodes.find(node => node.id === link.target);
     
-        // Make a link visible only if it connects the central node with a category node
+        // Making a link visible only if it connects the central node with a category node
         link.visible = (sourceNode.group === 0 && targetNode.group === 1) || (sourceNode.group === 1 && targetNode.group === 0);
     });
 
@@ -53,26 +70,35 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
     
     node.append("circle")
         .attr("r", function(d) { 
-            
-        return d.group === 0 ? 8 : 5; //central node unique size
+            if(d.group === 0) return 13; // Central node, now twice the size
+            else if(d.group === 1) return 8; // Category nodes, about the average of big node and book nodes
+            else return 5; 
         })
         .attr("fill", function(d) { 
-        return d.group === 0 ? "#505050" : d.group === 1 ? "#36013F" : "#D3D3D3"; 
+            if(d.group === 0) return centralNodeColor; // Central Node
+            else if(d.group === 1) {
+                // Using the category ID to assign color
+                let catIndex = parseInt(d.id.split("_")[1]) - 1;
+                return categoryColors[catIndex];
+            } else return "#D3D3D3"; 
         })
-        .on("click", clickNode);;
+        .on("click", clickNode);
+        
 
     // Append text labels to the node groups. when you refer to the json you would notice group 0 for central (course), 1 for categories and 2 for books
     node.append("text")
-        .attr("dx", 12)
-        .attr("dy", "0.35em")
-        .text(function(d) { return d.label; })
+        .attr("dx", 0)
+        .attr("dy", function(d) { 
+            return d.group === 0 ? 13 + 15 : d.group === 1 ? 8 + 15 : 5 + 15; 
+        })
+        .text(function(d) { return d.label.toUpperCase(); })
         .style("font-size", function(d) { 
-            return d.group === 0 || d.group === 1 ? "12px" : "10px"; 
+            return d.group === 0 || d.group === 1 ? "12px" : "11px"; 
         })
     .style("font-weight", function(d) { 
             return d.group === 0 || d.group === 1 ? "bold" : "normal"; 
         })
-        //.style("text-anchor", "middle");
+        .style("text-anchor", "middle");
 
     // Tooltip for book details
     node.filter(d => d.group === 2) // Only for book nodes
@@ -131,14 +157,14 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
         if (d.group === 1) { // condition for clicking category node
             graph.links.forEach(link => {
                 if (link.source.id === d.id || link.target.id === d.id) {
-                    link.visible = true; // Set the link visibility to true
-                    // Find and set the connected nodes visibility
+                    link.visible = true; // Setting the link visibility to true
+                    // Finding and setting the connected nodes visibility
                     const connectedNodeId = link.source.id === d.id ? link.target.id : link.source.id;
                     const connectedNode = graph.nodes.find(node => node.id === connectedNodeId);
                     connectedNode.visible = true;
                 }
             });
-            updateGraph(); // Update the graph with visibility changes
+            updateGraph(); // Updating the graph with visibility changes
         }
     }
     
@@ -162,7 +188,6 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
                   .selectAll("g")
                   .data(graph.nodes.filter(d => d.visible), d => d.id);
     
-        // Enter any new nodes
         var nodeEnter = node.enter().append("g")
                                 .call(d3.drag()
                                     .on("start", dragstarted)
@@ -170,29 +195,56 @@ d3.json("ES138-Graph-Data.json").then(function(graph) {
                                     .on("end", dragended));
     
         nodeEnter.append("circle")
-                 .attr("r", 5)
-                 .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; })
-                 .on("mouseover", mouseover) 
-                 .on("mouseout", mouseout);
+                .attr("r", function(d) { 
+                    if(d.group === 0) return 13; 
+                    else if(d.group === 1) return 8; 
+                    else return 5; 
+                })
+                .attr("fill", function(d) { 
+                    if(d.group === 0) return "#1fa040"; 
+                    else if(d.group === 1) {
+                        let catIndex = parseInt(d.id.split("_")[1]) - 1;
+                        return categoryColors[catIndex];
+                    } else return "#D3D3D3"; 
+                })
+                .on("click", clickNode)
+                .on("mouseover", mouseover) 
+                .on("mouseout", mouseout);
 
         nodeEnter.append("text")
-                 .attr("dx", 12)
-                 .attr("dy", "0.35em")
-                 .text(function(d) { return d.label; })
-                 .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
-                 .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
-                 //.style("text-anchor", "middle");
+                 .attr("dx", 0)
+                 //.attr("dy", "0.35em")
+                 .attr("dy", function(d) { 
+                    return d.group === 0 ? 13 + 15 : d.group === 1 ? 8 + 15 : 5 + 15; 
+                })
+                 .text(function(d) { return d.label.toUpperCase(); })
+                 .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "11px"; })
+                 .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; })
+                 .style("text-anchor", "middle");
     
         // Merge enter and update for nodes
         node = nodeEnter.merge(node);
     
         // Apply any specific styling or attributes to the merged node selection
         node.select("circle")
-            .attr("r", 5)
-            .attr("fill", function(d) { return d.group === 0 ? "#505050" : "#999"; });
+            .attr("r", function(d) { 
+                if(d.group === 0) return 13; // Central node
+                else if(d.group === 1) return 8; // Category nodes
+                else return 5; // Book nodes
+            })
+            .attr("fill", function(d) { 
+                if(d.group === 0) return "#1fa040";
+                else if(d.group === 1) {
+                    let catIndex = parseInt(d.id.split("_")[1]) - 1;
+                    return categoryColors[catIndex];
+                } else return "#D3D3D3";
+            })
+            .on("click", clickNode)
+            .on("mouseover", mouseover) 
+        .on("mouseout", mouseout);;
     
         node.select("text")
-            .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "10px"; })
+            .style("font-size", function(d) { return d.group === 0 || d.group === 1 ? "12px" : "11px"; })
             .style("font-weight", function(d) { return d.group === 0 || d.group === 1 ? "bold" : "normal"; });
     
         // Remove any old nodes
